@@ -10,7 +10,7 @@ The owner should be able to see what orders have been placed.
 The owner should be able to update order statuses.
 
 ## Requirements
-1. As a user, I want to place an order for propane tanks online, so that I can receive propane at my specified address without calling.
+### 1. As a user, I want to place an order for propane tanks online, so that I can receive propane at my specified address without calling.
 <br>
 <ul>
   <li><strong>Given</strong>: the user is on the order page and provides valid details.</li>
@@ -30,7 +30,7 @@ The owner should be able to update order statuses.
   <li><strong>Then</strong>: the system should display an error message indicating the correct format is needed.</li>
 </ul>
 <br>
-2. As a user, I want to view my order details after placing an order, so that I can verify the order information and delivery status.
+### 2. As a user, I want to view my order details after placing an order, so that I can verify the order information and delivery status.
 <br>
 <ul>
   <li><strong>Given</strong>: the user has placed an order.</li>
@@ -44,7 +44,7 @@ The owner should be able to update order statuses.
   <li><strong>Then</strong>: the system should display a list of all orders, and the user can select any order to view its details.</li>
 </ul>
 <br>
-3. As a user, I want to receive updates on my order status, so that I know when to expect my delivery.
+### 3. As a user, I want to receive updates on my order status, so that I know when to expect my delivery.
 <br>
 <ul>
   <li><strong>Given</strong>: the user has placed an order and provided an email address.</li>
@@ -58,7 +58,7 @@ The owner should be able to update order statuses.
   <li><strong>Then</strong>: the system should log an error and attempt to notify the user via phone if possible.</li>
 </ul>
 <br>
-4. As a user, I want to update my order before it is confirmed, so that I can make changes to the delivery details or tank quantities if needed.
+### 4. As a user, I want to update my order before it is confirmed, so that I can make changes to the delivery details or tank quantities if needed.
 <br>
 <ul>
   <li><strong>Given</strong>: the user has placed an order but it is not yet confirmed.</li>
@@ -72,7 +72,7 @@ The owner should be able to update order statuses.
   <li><strong>Then</strong>: the system should display a message indicating that the order cannot be updated after confirmation.</li>
 </ul>
 <br>
-5. As an owner, I want to update order statuses, so that I can notify my users without calling.
+### 5. As an owner, I want to update order statuses, so that I can notify my users without calling.
 <br>
 <ul>
   <li><strong>Given</strong>: I have delivered the tank to the delivery address.</li>
