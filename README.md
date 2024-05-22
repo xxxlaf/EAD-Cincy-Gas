@@ -12,51 +12,70 @@ The owner should be able to update order statuses.
 ## Requirements
 1. As a user, I want to place an order for propane tanks online, so that I can receive propane at my specified address without calling.
 <br>
-- **Given**: the user is on the order page and provides valid details.
-- **When**: the user fills in their name, delivery address, phone number, selects tank sizes and quantities, and submits the form.
-- **Then**: the order should be successfully placed, and the user should receive a confirmation message.
+<ul>
+  <li><strong>Given</strong>: the user is on the order page and provides valid details.</li>
+  <li><strong>When</strong>: the user fills in their name, delivery address, phone number, selects tank sizes and quantities, and submits the form.</li>
+  <li><strong>Then</strong>: the order should be successfully placed, and the user should receive a confirmation message.</li>
+</ul>
 <br>
-- **Given**: the user is on the order page.
-- **When**: the user leaves required fields (name, address, phone number) empty and tries to submit the form.
-- **Then**: the system should display an error message indicating the required fields need to be filled.
+<ul>
+  <li><strong>Given</strong>: the user is on the order page.</li>
+  <li><strong>When</strong>: the user leaves required fields (name, address, phone number) empty and tries to submit the form.</li>
+  <li><strong>Then</strong>: the system should display an error message indicating the required fields need to be filled.</li>
+</ul>
 <br>
-- **Given**: the user is on the order page.
-- **When**: the user enters an invalid phone number or email format and tries to submit the form.
-- **Then**: the system should display an error message indicating the correct format is needed.
-
+<ul>
+  <li><strong>Given</strong>: the user is on the order page.</li>
+  <li><strong>When</strong>: the user enters an invalid phone number or email format and tries to submit the form.</li>
+  <li><strong>Then</strong>: the system should display an error message indicating the correct format is needed.</li>
+</ul>
+<br>
 2. As a user, I want to view my order details after placing an order, so that I can verify the order information and delivery status.
 <br>
-- **Given**: the user has placed an order.
-- **When**: the user navigates to the order history page and selects an order.
-- **Then**: the system should display the order details including customer information, tank sizes, quantities, order date, and delivery status.
+<ul>
+  <li><strong>Given</strong>: the user has placed an order.</li>
+  <li><strong>When</strong>: the user navigates to the order history page and selects an order.</li>
+  <li><strong>Then</strong>: the system should display the order details including customer information, tank sizes, quantities, order date, and delivery status.</li>
+</ul>
 <br>
-- **Given**: the user has placed multiple orders.
-- **When**: the user navigates to the order history page.
-- **Then**: the system should display a list of all orders, and the user can select any order to view its details.
+<ul>
+  <li><strong>Given</strong>: the user has placed multiple orders.</li>
+  <li><strong>When</strong>: the user navigates to the order history page.</li>
+  <li><strong>Then</strong>: the system should display a list of all orders, and the user can select any order to view its details.</li>
+</ul>
 <br>
-4. As a user, I want to receive updates on my order status, so that I know when to expect my delivery.
+3. As a user, I want to receive updates on my order status, so that I know when to expect my delivery.
 <br>
-- **Given**: the user has placed an order and provided an email address.
-- **When**: the order status changes (e.g., confirmed, out for delivery, delivered).
-- **Then**: the system should send an email notification to the user with the updated status.
+<ul>
+  <li><strong>Given</strong>: the user has placed an order and provided an email address.</li>
+  <li><strong>When</strong>: the order status changes (e.g., confirmed, out for delivery, delivered).</li>
+  <li><strong>Then</strong>: the system should send an email notification to the user with the updated status.</li>
+</ul>
 <br>
-- **Given**: the user has placed an order but provided an invalid email address.
-- **When**: the order status changes.
-- **Then**: the system should log an error and attempt to notify the user via phone if possible.
+<ul>
+  <li><strong>Given</strong>: the user has placed an order but provided an invalid email address.</li>
+  <li><strong>When</strong>: the order status changes.</li>
+  <li><strong>Then</strong>: the system should log an error and attempt to notify the user via phone if possible.</li>
+</ul>
 <br>
 4. As a user, I want to update my order before it is confirmed, so that I can make changes to the delivery details or tank quantities if needed.
 <br>
-- **Given**: the user has placed an order but it is not yet confirmed.
-- **When**: the user navigates to the order details page and edits the information.
-- **Then**: the system should allow the changes and update the order details.
+<ul>
+  <li><strong>Given</strong>: the user has placed an order but it is not yet confirmed.</li>
+  <li><strong>When</strong>: the user navigates to the order details page and edits the information.</li>
+  <li><strong>Then</strong>: the system should allow the changes and update the order details.</li>
+</ul>
 <br>
-- **Given**: the user has placed an order and it has been confirmed.
-- **When**: the user tries to edit the order details.
-- **Then**: the system should display a message indicating that the order cannot be updated after confirmation.
+<ul>
+  <li><strong>Given</strong>: the user has placed an order and it has been confirmed.</li>
+  <li><strong>When</strong>: the user tries to edit the order details.</li>
+  <li><strong>Then</strong>: the system should display a message indicating that the order cannot be updated after confirmation.</li>
+</ul>
 <br>
 5. As an owner, I want to update order statuses, so that I can notify my users without calling.
 <br>
-- **Given**: I have delivered the tank to the delivery address.
-- **When**: I navigate to the order and change the order's delivery status.
-- **Then**: the system should update the order details and notify the user.
-<br>
+<ul>
+  <li><strong>Given</strong>: I have delivered the tank to the delivery address.</li>
+  <li><strong>When</strong>: I navigate to the order and change the order's delivery status.</li>
+  <li><strong>Then</strong>: the system should update the order details and notify the user.</li>
+</ul>
