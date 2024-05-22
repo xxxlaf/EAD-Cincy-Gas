@@ -14,7 +14,7 @@ The owner should be able to update order statuses.
 ![Cincy Gas Class Diagram](https://github.com/xxxlaf/EAD-Cincy-Gas/assets/40042446/82cdf94d-61dd-4a84-bb9e-5db043df3765)
 
 ### Class Diagram Details
-1. **Customer**: Contains customer details and has a method to place an order.
+1. **Customer**: contains customer details and has a method to place an order.
 2. **Order**: manages orders, holds a list of propane tanks, calculates the total number of tanks, and confirms the order.
 3. **Propane** Tank: represents individual propane tanks with their size and quantity.
 4. **Delivery**: manages the delivery status details for each order, schedules deliveries, and updates their status.
