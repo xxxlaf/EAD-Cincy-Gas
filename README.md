@@ -78,11 +78,11 @@ The owner should be able to update order statuses.
 >        "deliveryId": {
 >            "type": "integer"
 >        },
->        "deliveryDate": {
->            "type": "date"
->        },
 >        "orderId": {
 >            "type": "string"
+>        },
+>        "deliveryDate": {
+>            "type": "date"
 >        },
 >        "deliveryStatusId": {
 >            "type": "integer"
