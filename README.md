@@ -13,6 +13,29 @@ The owner should be able to update order statuses.
 
 ![Cincy Gas Class Diagram](https://github.com/xxxlaf/EAD-Cincy-Gas/assets/40042446/82cdf94d-61dd-4a84-bb9e-5db043df3765)
 
+### JSON Schema
+**Customer**: 
+>{
+>    "type": "object",
+>    "properties": {
+>        "fulLName": {
+>            "type": "string"
+>        },
+>        "deliveryAddress": {
+>            "type": "string"
+>        },
+>        "company": {
+>            "type": "string"
+>        },
+>        "phoneNumber": {
+>            "type": "string"
+>        },
+>        "emailAddress": {
+>            "type": "string"
+>        }
+>    }
+>}
+
 ### Class Diagram Details
 1. **Customer**: contains customer details and has a method to place an order.
 2. **Order**: manages orders, holds a list of propane tanks, calculates the total number of tanks, and confirms the order.
