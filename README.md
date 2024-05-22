@@ -11,7 +11,8 @@ The owner should be able to update order statuses.
 
 ## Class Diagram
 
-![Cincy Gas Class Diagram](https://github.com/xxxlaf/EAD-Cincy-Gas/assets/40042446/82cdf94d-61dd-4a84-bb9e-5db043df3765)
+![Cincy Gas Class Diagram](https://github.com/xxxlaf/EAD-Cincy-Gas/assets/40042446/99617bfb-1a1a-444e-b6d7-ebe6da9c2b5e)
+
 
 ### JSON Schema
 **Customer**: 
