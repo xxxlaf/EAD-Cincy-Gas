@@ -1,5 +1,14 @@
 # Functional Requirements
 
+## Introduction
+Cincy Gas currently receives all propane orders via telephone. The upkeep of having to listen to voicemails and call back is time consuming. Orders are written by hand and stored in boxes, this is also time consuming. This application will begin to address the upkeep and maintenance by digitizing orders and deliveries.
+
+Users should be able to make orders without having to call in.
+Users should be able to see their order's delivery status.
+Users should be able to be notified of an order's status change.
+The owner should be able to see what orders have been placed.
+The owner should be able to update order statuses.
+
 ## Requirements
 1. As a user, I want to place an order for propane tanks online, so that I can receive propane at my specified address without calling.
    
