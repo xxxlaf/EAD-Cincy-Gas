@@ -18,13 +18,16 @@ The owner should be able to update order statuses.
 >{
 >    "type": "object",
 >    "properties": {
+>        "customerId": {
+>            "type": "integer"
+>        },
 >        "fulLName": {
 >            "type": "string"
 >        },
 >        "deliveryAddress": {
 >            "type": "string"
 >        },
->        "company": {
+>        "companyName": {
 >            "type": "string"
 >        },
 >        "phoneNumber": {
@@ -36,10 +39,61 @@ The owner should be able to update order statuses.
 >    }
 >}
 
+**Order**: 
+>{
+>    "type": "object",
+>    "properties": {
+>        "orderId": {
+>            "type": "integer"
+>        },
+>        "customerId": {
+>            "type": "integer"
+>        },
+>        "orderDate": {
+>            "type": "date"
+>        },
+>        "listOfTanks": {
+>            "type": "array"
+>        }
+>    }
+>}
+
+**Propane Tank**: 
+>{
+>    "type": "object",
+>    "properties": {
+>        "tankSize": {
+>            "type": "integer"
+>        },
+>        "quantity": {
+>            "type": "integer"
+>        }
+>    }
+>}
+
+**Delivery**: 
+>{
+>    "type": "object",
+>    "properties": {
+>        "deliveryId": {
+>            "type": "integer"
+>        },
+>        "deliveryDate": {
+>            "type": "date"
+>        },
+>        "orderId": {
+>            "type": "string"
+>        },
+>        "deliveryStatusId": {
+>            "type": "integer"
+>        }
+>    }
+>}
+
 ### Class Diagram Details
 1. **Customer**: contains customer details and has a method to place an order.
 2. **Order**: manages orders, holds a list of propane tanks, calculates the total number of tanks, and confirms the order.
-3. **Propane** Tank: represents individual propane tanks with their size and quantity.
+3. **Propane Tank**: represents individual propane tanks with their size and quantity.
 4. **Delivery**: manages the delivery status details for each order, schedules deliveries, and updates their status.
 
 ## Requirements
