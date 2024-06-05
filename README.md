@@ -173,3 +173,6 @@ The owner should be able to update order statuses.
 **UI Specialist**: Kayla Neely <br>
 **Business Logic and Persistence Specialist**: Cameron Gordon <br>
 **Product Owner/Scrum Master/DevOps/GitHub Administrator**: Daniel Waters <br>
+
+## Stand Up Meeting
+We chose to use Discord as our tool for the stand up meeting ([link to meeting](https://discord.gg/AGwqKuFz?event=1248017094188990538)).
