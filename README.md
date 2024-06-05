@@ -170,6 +170,6 @@ The owner should be able to update order statuses.
 >}
 
 ## Scrum Roles
-**UI Specialist**: _n/a_ <br>
+**UI Specialist**: Kayla Neely <br>
 **Business Logic and Persistence Specialist**: Cameron Gordon <br>
 **Product Owner/Scrum Master/DevOps/GitHub Administrator**: Daniel Waters <br>
