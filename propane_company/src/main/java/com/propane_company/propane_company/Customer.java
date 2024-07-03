@@ -5,6 +5,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
+import java.util.List;
+
 @Entity
 public class Customer {
 
@@ -17,6 +19,9 @@ public class Customer {
     public String companyName;
     public String phoneNumber;
     public String email;
+
+
+
 
     public Integer getId(){
         return customerId;

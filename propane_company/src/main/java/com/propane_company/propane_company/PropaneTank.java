@@ -6,6 +6,7 @@ import java.sql.Date;
 
 
 @Entity
+@Table(name = "propane_tank")
 public class PropaneTank {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -17,6 +18,15 @@ public class PropaneTank {
 
     private Date deliveryDate;
     private String deliveryStatus;
+    private Integer TankSize;
+
+    public void setTankSize(Integer TankSize) {
+        this.TankSize = TankSize;
+    }
+
+    public Integer getTankSize() {
+        return TankSize;
+    }
 
     public void getPropaneTankId(Integer propaneTankId) {
         this.propaneTankId = propaneTankId;
