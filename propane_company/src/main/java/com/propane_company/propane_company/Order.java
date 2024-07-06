@@ -13,7 +13,8 @@ public class Order {
     private Integer orderId;
     public Integer customerId;
     public Date orderDate;
-    @OneToMany(mappedBy = "order")
+    public Integer quantity;
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
     private List<PropaneTank> propaneTanks;
     /**
      * Order order = new Order();
@@ -30,6 +31,14 @@ public class Order {
      * orderRepository.save(order);
      * @return
      */
+
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
+    }
+
+    public Integer getQuantity() {
+        return quantity;
+    }
 
     public Integer getOrderId(){
         return orderId;
