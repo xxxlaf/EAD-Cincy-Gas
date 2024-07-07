@@ -14,11 +14,11 @@ public class Customer {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer customerId;
 
-    public String fullName;
-    public String deliveryAddress;
-    public String companyName;
-    public String phoneNumber;
-    public String email;
+    private String fullName;
+    private String deliveryAddress;
+    private String companyName;
+    private String phoneNumber;
+    private String email;
 
 
 
