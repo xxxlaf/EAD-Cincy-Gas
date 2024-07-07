@@ -33,41 +33,45 @@ public class HomeController {
     public String lookupOrder(@RequestParam String phone, @RequestParam String address, Model model) {
         System.out.println(phone);
         System.out.println(address);
+        try {
+            List<Customer> customerList = customerRepository.findByPhoneNumberAndDeliveryAddress(phone, address);
+            List<HashMap> tanks = new ArrayList<>();
 
-        List<Customer> customerList = customerRepository.findByPhoneNumberAndDeliveryAddress(phone, address);
-        List<HashMap> tanks = new ArrayList<>();
+            for (Customer customer : customerList) {
+                System.out.println(customer.getId());
 
-        for (Customer customer : customerList) {
-            System.out.println(customer.getId());
+                List<Order> orders = orderRepository.findByCustomerId(customer.getId());
 
-            List<Order> orders = orderRepository.findByCustomerId(customer.getId());
+                for (Order order : orders) {
+                    Integer quantity = order.getQuantity();
+                    List<PropaneTank> propaneTanks = order.getPropaneTanks();
 
-            for (Order order : orders) {
-                Integer quantity = order.getQuantity();
-                List<PropaneTank> propaneTanks = order.getPropaneTanks();
+                    for (PropaneTank propaneTank : propaneTanks) {
+                        HashMap<String, String> tank = new HashMap<>();
+                        tank.put("id", Integer.toString(propaneTank.getPropaneTankId()));
+                        tank.put("size", Integer.toString(propaneTank.getTankSize()));
+                        tank.put("quantity", Integer.toString(quantity));
+                        tank.put("status", propaneTank.getDeliveryStatus());
+                        tank.put("order_id", Integer.toString(order.getOrderId()));
+                        tank.put("order_date", propaneTank.getDeliveryDate().toString());
 
-                for (PropaneTank propaneTank : propaneTanks) {
-                    HashMap<String, String> tank = new HashMap<>();
-                    tank.put("id", Integer.toString(propaneTank.getPropaneTankId()));
-                    tank.put("size", Integer.toString(propaneTank.getTankSize()));
-                    tank.put("quantity", Integer.toString(quantity));
-                    tank.put("status", propaneTank.getDeliveryStatus());
-                    tank.put("order_id", Integer.toString(order.getOrderId()));
-                    tank.put("order_date", propaneTank.getDeliveryDate().toString());
-
-                    tanks.add(tank);
+                        tanks.add(tank);
+                    }
                 }
             }
+
+            ModelAndView modelAndView = new ModelAndView("home");
+
+            System.out.println("TANK AMOUNT");
+            System.out.println(tanks.size());
+
+            model.addAttribute("hashMapList", tanks);
+
+            return "orderLookup";
+        }catch (Exception e){
+            model.addAttribute("error", "An error occurred while looking up orders.");
+            return "error";
         }
-
-        ModelAndView modelAndView = new ModelAndView("home");
-
-        System.out.println("TANK AMOUNT");
-        System.out.println(tanks.size());
-
-        model.addAttribute("hashMapList", tanks);
-
-        return "orderLookup";
     }
 
     @PostMapping("/create_order")
