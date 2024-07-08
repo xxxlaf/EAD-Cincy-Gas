@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Order Confirmation</title>
+    <style>
+        body{
+            font-family: "Lucida Sans";
+            background-color: #c0c0c0;}
+
+        /*add a border around the page content*/
+        .border{
+            background-color: white;
+            margin-left: 15%;
+            margin-right: 15%;
+
+        }
+
+        header{
+            background-color: white;
+        }
+
+        /*nav bar*/
+        .navbar{
+            list-style-type: none;
+            margin-top: 30px;
+            padding: 0;
+            overflow: hidden;
+            background-color: #c0c0c0;
+            font-size: medium;
+        }
+        .navbar a {
+            float: left;
+            display: block;
+            color: black;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        .navbar a:hover{
+            background-color: #36454f ;
+            color: #c0c0c0}
+        .navbar .active{
+            background-color: #004b86 ;
+            color: #c0c0c0}
+
+        /**float the div**/
+        .confirm{
+            float: right;
+            width:300px;
+            margin:10px;
+            padding:10px;
+            background-color: #004b86;
+            color: white;
+
+        }
+
+        </style>
+</head>
+<body>
+
+<div class="border">
+<header>
+
+    <h1><img src="/images/CincyGas.png" alt="CGLogo" style="width: 100px;height: 100px">Cincy Gas </h1>
+    <!-- Nav bar-->
+    <div class="navbar">
+        <a href="start.html" class="active">Home</a>
+        <a href="order.html">Order Propane</a>
+        <a href="orderLookup.html">Your Order</a>
+    </div>
+
+</header>
+
+Order Confirmation
+
+<div class="confirm"><p>Your order has been confirmed</p></div>
+</div>
+</body>
+</html>
