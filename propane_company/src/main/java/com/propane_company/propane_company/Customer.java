@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import org.antlr.v4.runtime.misc.NotNull;
 
 import java.util.List;
 
@@ -14,10 +15,19 @@ public class Customer {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer customerId;
 
+    @NotNull
     public String fullName;
+
+    @NotNull
     public String deliveryAddress;
+
+    @NotNull
     public String companyName;
+
+    @NotNull
     public String phoneNumber;
+
+    @NotNull
     public String email;
 
 
