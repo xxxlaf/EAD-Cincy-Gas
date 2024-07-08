@@ -6,8 +6,12 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 class PropaneCompanyApplicationTests {
 
+	@Autowired
+	private HomeController controller;
+
 	@Test
-	void contextLoads() {
+	void contextLoads() throws Exception {
+		assertThat(controller).isNotNull();
 	}
 
 }
