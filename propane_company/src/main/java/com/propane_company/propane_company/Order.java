@@ -79,5 +79,15 @@ public class Order {
         this.orderDate = orderDate;
     }
 
+    // Utility methods to manage propane Tank
 
+    public void addPropaneTank(PropaneTank propaneTank) {
+        propaneTanks.add(propaneTank);
+        propaneTank.setOrder(this);
+    }
+
+    public void removePropaneTank(PropaneTank propaneTank) {
+        propaneTanks.remove(propaneTank);
+        propaneTank.setOrder(null);
+    }
 }
