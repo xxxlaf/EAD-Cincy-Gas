@@ -34,10 +34,10 @@ public class HomeController {
         System.out.println(phone);
         System.out.println(address);
 
-        List<Customer> customerList = customerRepository.findByPhoneNumberAndDeliveryAddress(phone, address);
+        List<Customer> customers = customerRepository.findByPhoneNumberAndDeliveryAddress(phone, address);
         List<HashMap> tanks = new ArrayList<>();
 
-        for (Customer customer : customerList) {
+        for (Customer customer : customers) {
             System.out.println(customer.getId());
 
             List<Order> orders = orderRepository.findByCustomerId(customer.getId());
@@ -47,15 +47,15 @@ public class HomeController {
                 List<PropaneTank> propaneTanks = order.getPropaneTanks();
 
                 for (PropaneTank propaneTank : propaneTanks) {
-                    HashMap<String, String> tank = new HashMap<>();
-                    tank.put("id", Integer.toString(propaneTank.getPropaneTankId()));
-                    tank.put("size", Integer.toString(propaneTank.getTankSize()));
-                    tank.put("quantity", Integer.toString(quantity));
-                    tank.put("status", propaneTank.getDeliveryStatus());
-                    tank.put("order_id", Integer.toString(order.getOrderId()));
-                    tank.put("order_date", propaneTank.getDeliveryDate().toString());
+                    HashMap<String, String> tankInfo = new HashMap<>();
+                    tankInfo.put("id", Integer.toString(propaneTank.getPropaneTankId()));
+                    tankInfo.put("size", Integer.toString(propaneTank.getTankSize()));
+                    tankInfo.put("quantity", Integer.toString(quantity));
+                    tankInfo.put("status", propaneTank.getDeliveryStatus());
+                    tankInfo.put("order_id", Integer.toString(order.getOrderId()));
+                    tankInfo.put("order_date", propaneTank.getDeliveryDate().toString());
 
-                    tanks.add(tank);
+                    tanks.add(tankInfo);
                 }
             }
         }
@@ -71,49 +71,49 @@ public class HomeController {
     }
 
     @PostMapping("/create_order")
-    public ModelAndView createOrder(@RequestParam String CustomerName, @RequestParam String CompanyName,
-                                    @RequestParam String DeliveryAddress, @RequestParam String PhoneNumber,
-                                    @RequestParam Integer TankSize, @RequestParam Integer Quantity, @RequestParam String Email,
-                                    @RequestParam String DeliveryDate)
+    public ModelAndView createOrder(@RequestParam String customerName, @RequestParam String companyName,
+                                    @RequestParam String deliveryAddress, @RequestParam String phoneNumber,
+                                    @RequestParam Integer tankSize, @RequestParam Integer quantity, @RequestParam String email,
+                                    @RequestParam String deliveryDate)
     {
-        System.out.println(CustomerName);
-        System.out.println(CompanyName);
-        System.out.println(DeliveryAddress);
-        System.out.println(PhoneNumber);
-        System.out.println(TankSize);
-        System.out.println(Quantity);
-        System.out.println(Email);
-        System.out.println(DeliveryDate);
+        System.out.println(customerName);
+        System.out.println(companyName);
+        System.out.println(deliveryAddress);
+        System.out.println(phoneNumber);
+        System.out.println(tankSize);
+        System.out.println(quantity);
+        System.out.println(email);
+        System.out.println(deliveryDate);
 
         Customer customer = new Customer();
 
-        customer.setEmail(Email);
-        customer.setCompanyName(CompanyName);
-        customer.setPhoneNumber(PhoneNumber);
-        customer.setFullName(CustomerName);
-        customer.setDeliveryAddress(DeliveryAddress);
+        customer.setEmail(email);
+        customer.setCompanyName(companyName);
+        customer.setPhoneNumber(phoneNumber);
+        customer.setFullName(customerName);
+        customer.setDeliveryAddress(deliveryAddress);
 
-        Customer saved_customer = customerRepository.save(customer);
+        Customer savedCustomer = customerRepository.save(customer);
 
         Order order = new Order();
 
-        order.setCustomerId(saved_customer.getId());
-        order.setQuantity(Quantity);
+        order.setCustomerId(savedCustomer.getId());
+        order.setQuantity(quantity);
 
-        Order result_order = orderRepository.save(order);
+        Order savedOrder = orderRepository.save(order);
 
         List<PropaneTank> propaneTanks = new ArrayList<>();
 
-        for (int i=0; i < Quantity; i++) {
+        for (int i=0; i < quantity; i++) {
             PropaneTank propaneTank = new PropaneTank();
 
             // Parse the string into a LocalDate object
-            LocalDate localDate = LocalDate.parse(DeliveryDate, DateTimeFormatter.ISO_DATE);
+            LocalDate localDate = LocalDate.parse(deliveryDate, DateTimeFormatter.ISO_DATE);
             Date sqlDate = Date.valueOf(localDate);
 
-            propaneTank.setTankSize(TankSize);
+            propaneTank.setTankSize(tankSize);
             propaneTank.setDeliveryStatus("pending");
-            propaneTank.setOrder(result_order);
+            propaneTank.setOrder(savedOrder);
             propaneTank.setDeliveryDate(sqlDate);
 
             propaneTanks.add(propaneTank);
@@ -121,7 +121,7 @@ public class HomeController {
 
         order.setPropaneTanks(propaneTanks);
 
-        orderRepository.save(result_order);
+        orderRepository.save(savedOrder);
 
         // https://www.baeldung.com/spring-mvc-model-model-map-model-view
         ModelAndView modelAndView = new ModelAndView("home");
