@@ -9,6 +9,7 @@
           crossorigin="anonymous">
 </head>
 <body>
+<header>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="/">Cincy Gas</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,36 +27,55 @@
         </ul>
     </div>
 </nav>
-<div class="container">
-    <h1>Lookup order: Make sure it's exact!</h1>
-    <form method="post" action="/search_orders">
-        <input type="text" class="form-control" name="phone" placeholder="Phone">
-        <input type="text" class="form-control" name="address" placeholder="Address" style="margin-top:10px; margin-bottom:10px">
-        <button type="submit" class="btn btn-primary">Lookup</button>
-    </form>
+</header>
+<main>
+    <div class="container">
+        <section>
+            <h1>Lookup order: Make sure it's exact!</h1>
+            <form method="post" action="/search_orders">
+                <div class="form-group">
+                    <label for="phone">Phone:</label>
+                    <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="address">Address:</label>
+                    <input type="text" class="form-control" id="address" name="address" placeholder="Address" style="margin-top:10px; margin-bottom:10px" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Lookup</button>
+            </form>
+        </section>
 
-    <table style="margin-top:50px" class="table">
-        <thead>
-        <tr>
-            <th>Tank #</th>
-            <th>Order ID #</th>
-            <th>Size</th>
-            <th>Qty</th>
-            <th>Delivery Date</th>
-            <th>Status</th>
-        </tr>
-        </thead>
-        <tbody>
-            <tr th:each="map : ${hashMapList}">
-                <td th:text="${map['id']}">Tank</td>
-                <td th:text="${map['order_id']}">Size</td>
-                <td th:text="${map['size']}">Size</td>
-                <td th:text="${map['quantity']}">Qty</td>
-                <td th:text="${map['order_date']}">Delivery Date</td>
-                <td th:text="${map['status']}">Status</td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+        <section>
+            <table class="table" style="margin-top:50px">
+                <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Tank #</th>
+                    <th scope="col">Order ID #</th>
+                    <th scope="col">Size</th>
+                    <th scope="col">Qty</th>
+                    <th scope="col">Delivery Date</th>
+                    <th scope="col">Status</th>
+                </tr>
+                </thead>
+                <tbody>
+                <!-- Use Thymeleaf or appropriate framework syntax for iteration -->
+                <tr th:each="map : ${hashMapList}">
+                    <td th:text="${map['id']}">Tank</td>
+                    <td th:text="${map['order_id']}">Size</td>
+                    <td th:text="${map['size']}">Size</td>
+                    <td th:text="${map['quantity']}">Qty</td>
+                    <td th:text="${map['order_date']}">Delivery Date</td>
+                    <td th:text="${map['status']}">Status</td>
+                </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+</main>
+<footer>
+    <!-- Footer content if needed -->
+</footer>
+
+
 </body>
 </html>
