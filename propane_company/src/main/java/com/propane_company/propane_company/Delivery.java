@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import org.antlr.v4.runtime.misc.NotNull;
 
 import java.sql.Date;
 
@@ -14,7 +15,11 @@ public class Delivery {
     private int deliveryId;
 
     private int orderId;
+
+    @NotNull
     private Date deliveryDate;
+
+    @NotNull
     private String deliveryStatus;
 
     public int getDeliveryId() {

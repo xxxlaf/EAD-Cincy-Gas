@@ -1,6 +1,7 @@
 package com.propane_company.propane_company;
 
 import jakarta.persistence.*;
+import org.antlr.v4.runtime.misc.NotNull;
 
 import java.sql.Date;
 import java.util.List;
@@ -11,9 +12,14 @@ public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer orderId;
-    public Integer customerId;
-    public Date orderDate;
-    public Integer quantity;
+    @NotNull
+    private Integer customerId;
+
+    @NotNull
+    private Date orderDate;
+
+    @NotNull
+    private Integer quantity;
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
     private List<PropaneTank> propaneTanks;
     /**

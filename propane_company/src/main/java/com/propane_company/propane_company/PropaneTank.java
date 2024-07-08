@@ -1,6 +1,7 @@
 package com.propane_company.propane_company;
 
 import jakarta.persistence.*;
+import org.antlr.v4.runtime.misc.NotNull;
 
 import java.sql.Date;
 
@@ -13,12 +14,17 @@ public class PropaneTank {
     private Integer propaneTankId;
 
     @ManyToOne
-    @JoinColumn(name="order_id")
+    @JoinColumn(name = "order_id", nullable = false)
     private Order order;
 
+    @NotNull
     private Date deliveryDate;
+
+    @NotNull
     private String deliveryStatus;
-    private Integer TankSize;
+
+    @NotNull
+    private Integer tankSize;
 
     public void setTankSize(Integer TankSize) {
         this.TankSize = TankSize;
