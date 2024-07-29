@@ -16,6 +16,18 @@ public class Order {
     public Integer quantity;
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
     private List<PropaneTank> propaneTanks;
+
+    @ManyToOne
+    @JoinColumn(name="admin_id")
+    private Administrator administrator;
+
+    public Administrator getAdministrator() {
+        return administrator;
+    }
+
+    public void setAdministrator(Administrator administrator) {
+        this.administrator = administrator;
+    }
     /**
      * Order order = new Order();
      * // Set other properties of the order

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Cincy Gas</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/">Cincy Gas</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Order New <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/order_lookup">Order Lookup</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/login">Admin Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/notifications">Notifications</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <form method="post" action="/edit_order">
+            <input type="hidden" th:value="${map.tank_id}" name="tankId">
+
+            <label for="formDeliveryDate">Delivery Date</label>
+            <input type="text" th:value="${map.delivery_date}" class="form-control" name="deliveryDate" id="formDeliveryDate">
+
+            <label for="formTankSize">Tank Size</label>
+            <input type="text" th:value="${map.size}" class="form-control" name="tankSize" id="formTankSize">
+
+
+            <label for="formQuantity">Order Quantity</label>
+            <input type="text" th:value="${map.quantity}" class="form-control" name="quantity" id="formQuantity">
+
+            <button type="submit" class="btn btn-primary" style="margin-top:10px">Update Tank</button>
+        </form>
+    </div>
+</body>
+</html>
