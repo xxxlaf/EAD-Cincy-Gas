@@ -23,6 +23,12 @@
             <li class="nav-item active">
                 <a class="nav-link" href="/order_lookup">Order Lookup <span class="sr-only">(current)</span></a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/login">Admin Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/notifications">Notifications</a>
+            </li>
         </ul>
     </div>
 </nav>
@@ -31,9 +37,9 @@
     <form method="post" action="/search_orders">
         <input type="text" class="form-control" name="phone" placeholder="Phone">
         <input type="text" class="form-control" name="address" placeholder="Address" style="margin-top:10px; margin-bottom:10px">
+        <input type="hidden" th:value="${isAdmin}" name="isAdmin">
         <button type="submit" class="btn btn-primary">Lookup</button>
     </form>
-
     <table style="margin-top:50px" class="table">
         <thead>
         <tr>
@@ -43,6 +49,8 @@
             <th>Qty</th>
             <th>Delivery Date</th>
             <th>Status</th>
+            <th th:if="${isAdmin}">Update Status</th>
+            <th>Update Order</th>
         </tr>
         </thead>
         <tbody>
@@ -53,6 +61,12 @@
                 <td th:text="${map['quantity']}">Qty</td>
                 <td th:text="${map['order_date']}">Delivery Date</td>
                 <td th:text="${map['status']}">Status</td>
+                <td th:if="${isAdmin}">
+                    <a th:href="@{/updateStatus/{id}(id=${map['id']})}" class="btn btn-primary">Update Status</a>
+                </td>
+                <td>
+                    <a th:href="@{/updateOrder/{id}(id=${map.id})}" class="btn btn-primary">Update Order</a>
+                </td>
             </tr>
         </tbody>
     </table>
